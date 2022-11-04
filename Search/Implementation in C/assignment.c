@@ -122,7 +122,7 @@ int main()
 int rarr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 int i,j,k;
 
-struct index   //1.block
+struct index   //block
 {
 	int key;  
 	int start;
@@ -164,13 +164,13 @@ int block_search(int key,int a[])
 	
 }
 
-//sequence
-int lenr = sizeof(rarr) / sizeof(rarr[0]);
-int sequence_search(int *a, int len, int k)
+
+int lenr = sizeof(rarr) / sizeof(rarr[0]);//sequence
+int sequence_search(int *a, int len, int key)
 {
 
 	for(i = 0 ;i <= len;i++){
-		if(a[i] == k)
+		if(a[i] == key)
 		{
 			return i;	
 		}
@@ -178,8 +178,8 @@ int sequence_search(int *a, int len, int k)
 	return -1;
 }
 
-//binary
-int binary_search(int key) 
+
+int binary_search(int key) //binary
 {
  int left = 1,right = 9;
  int mid = 0;
