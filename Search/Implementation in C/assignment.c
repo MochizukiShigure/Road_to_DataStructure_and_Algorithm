@@ -56,20 +56,17 @@ int main(){
 	scanf("%d",&key);
 	creat_list(rarr);
 	a=block_search(key,rarr);
-	printf("result by block search : %d", a);
+	printf("result by block search : %d is founded at index %d in array \n", key, a);
 	return 0;
 }
 
 //1.sequence
 #include<stdio.h>
-int rarr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-int k = 7;
-int lenr = sizeof(rarr) / sizeof(rarr[0]);
-
-int sequence_search(int *a, int len, int k)
+int i;
+int sequence_search(int *a, int len, int key)
 {
-	for(int i = 0 ;i <= len;i++){
-		if(a[i] == k)
+	for(i = 0 ;i <= len;i++){
+		if(a[i] == key)
 		{
 			return i;	
 		}
@@ -79,9 +76,11 @@ int sequence_search(int *a, int len, int k)
 
 int main()
 {
-	int b;
-	b = sequence_search(rarr, lenr, k);
-	printf("result by sequence search : %d", b);
+	int rarr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+	int key = 7;
+	int lenr = sizeof(rarr) / sizeof(rarr[0]);
+	int b = sequence_search(rarr, lenr, key);
+	printf("result by sequence search : %d is founded at index %d in array \n", key, b);
 }
 
 //1.binary
@@ -115,15 +114,15 @@ int main()
  int key;
  scanf("%d",&key);
  int c = binary_search(key);
- printf("%d",c);
+ printf("result by binary search : %d is founded \n", c);
 }
 
 //general
 #include <stdio.h>
 int rarr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 int i,j,k;
-//1.block
-struct index
+
+struct index   //1.block
 {
 	int key;  
 	int start;
