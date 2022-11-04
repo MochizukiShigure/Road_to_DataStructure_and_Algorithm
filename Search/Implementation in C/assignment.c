@@ -117,9 +117,10 @@ int main()
  printf("result by binary search : %d is founded \n", c);
 }
 
-//general
+//1.general
 #include <stdio.h>
 int rarr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+int larr[] = {3, 2, 1, 5, 6, 4, 9, 8, 7};
 int i,j,k;
 
 struct index   //block
@@ -207,14 +208,19 @@ int main(){
 	scanf("%d",&key);
 	creat_list(rarr);
 	a=block_search(key,rarr);
-	printf("result by block search : %d is founded at index %d in array \n", key, a);
+	printf("result by block search : %d is founded in not random list at index %d in array \n", key, a);
+	
+	creat_list(larr);
+	a=block_search(key,larr);
+	printf("result by block search : %d is founded in random list at index %d in array \n", key, a);
 	
 	int b;
 	b = sequence_search(rarr, lenr, key);
-	printf("result by sequence search : %d is founded at index %d in array \n", key, b);
+	printf("result by sequence search : %d is founded in not random list at index %d in array \n", key, b);
 	
  	int c = binary_search(key);
- 	printf("result by binary search : %d is founded \n", c);
+ 	printf("result by binary search : %d is founded in not random list \n", c);
  
 	return 0;
 }
+
