@@ -50,17 +50,15 @@ int block_search(int key,int a[])
 	
 }
 
-
 int main(){
 	int rarr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-	int key,n;
+	int key,a;
 	scanf("%d",&key);
 	creat_list(rarr);
-	n=block_search(key,rarr);
-	printf("%d", n);
+	a=block_search(key,rarr);
+	printf("result by block search : %d", a);
 	return 0;
 }
-
 
 //1.sequence
 #include<stdio.h>
@@ -68,7 +66,7 @@ int rarr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 int k = 7;
 int lenr = sizeof(rarr) / sizeof(rarr[0]);
 
-int sequence(int *a, int len, int k)
+int sequence_search(int *a, int len, int k)
 {
 	for(int i = 0 ;i <= len;i++){
 		if(a[i] == k)
@@ -81,7 +79,42 @@ int sequence(int *a, int len, int k)
 
 int main()
 {
-	int result;
-	result = sequence(rarr, lenr, k);
-	printf("result by sequence search : %d", result);
+	int b;
+	b = sequence_search(rarr, lenr, k);
+	printf("result by sequence search : %d", b);
 }
+
+//1.binary
+#include<stdio.h>
+int binary_search(int key) 
+{
+ int left = 1,right = 9;
+ int mid = 0;
+ while (left <= right)
+ {
+  mid = (left + right) / 2;
+  if (key < mid)
+  {
+   right = mid;
+  }
+  else if (key > mid)
+  {
+   left = mid+1;
+  }
+  else 
+  {
+   return key;
+   break;
+  }	
+ }
+}
+
+int main()
+{
+ int rarr[9] = {1, 2, 3, 4, 5, 6, 7, 8, 9 };
+ int key;
+ scanf("%d",&key);
+ int c = binary_search(key);
+ printf("%d",c);
+}
+
