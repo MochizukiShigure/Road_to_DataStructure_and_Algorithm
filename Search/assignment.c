@@ -51,11 +51,15 @@ int block_search(int key,int a[])
 
 int main(){
 	int rarr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+	int larr[] = {3, 2, 1, 5, 6, 4, 9, 8, 7};
 	int key,a;
 	scanf("%d",&key);
 	creat_list(rarr);
 	a=block_search(key,rarr);
 	printf("result by block search : %d is founded at index %d in array \n", key, a);
+	creat_list(larr);
+	a=block_search(key,larr);
+	printf("result by block search : %d is founded in random list at index %d in array \n", key, a);
 	return 0;
 }
 
@@ -97,7 +101,7 @@ int binary_search(int key)
   }
   else if (key > mid)
   {
-   left = mid+1;
+   left = mid+1;   //notice:left = mid+1 instead of mid
   }
   else 
   {
