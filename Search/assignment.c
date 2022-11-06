@@ -43,7 +43,6 @@ int block_search(int key,int a[])
 	for(j=index_list[i].start; j<=index_list[i].end; j++){
 		if(a[j]==key){
 			return j;
-			//break;
 			} 
 		}
 	
