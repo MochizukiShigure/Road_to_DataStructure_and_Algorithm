@@ -228,3 +228,138 @@ int main(){
 }
 
 //2-3
+#include<stdio.h>
+#include<stdlib.h>
+#define TRUE 1
+#define FALSE 0
+
+typedef struct TNode
+{
+	int data;
+	struct TNode *lchild, *rchild;
+} TNode, *BTree;
+
+int BST_Search(BTree T, int key, BTree f, BTree *p) {
+	if (!T) {
+		*p = f;
+		return FALSE;
+	}
+	else if (key == T->data) {
+		*p = T;
+		return TRUE;
+	}
+	else if (key < T->data) {
+		return BST_Search(T->lchild, key, T, p);
+	}
+	else {
+		return BST_Search(T->rchild, key, T, p);
+	}
+}
+
+int creatInsert(BTree *T, int e) {
+	BTree p = NULL;
+	if (!BST_Search((*T), e, NULL, &p)) {
+
+		BTree s = (BTree)malloc(sizeof(TNode));
+		s->data = e;
+		s->lchild = s->rchild = NULL;
+	
+		if (p==NULL) {
+			*T = s;
+		}
+		else if (e < p->data) {
+			p->lchild = s;
+		}
+		else {
+			p->rchild = s;
+		}
+		return TRUE;
+	}
+	return FALSE;
+}
+
+int Delete(BTree *p)
+{
+	BTree q, s;
+	if (!(*p)->lchild && !(*p)->rchild) {
+		*p = NULL;
+	}
+	else if (!(*p)->lchild) { 
+		q = *p;
+		*p = (*p)->rchild;
+		free(q);
+	}
+	else if (!(*p)->rchild) {
+		q = *p;
+		*p = (*p)->lchild;
+		free(q);
+	}
+	else {
+		q = *p;
+		s = (*p)->lchild;
+		while (s->rchild)
+		{
+			q = s;
+			s = s->rchild;
+		}
+		(*p)->data = s->data;
+		if (q != *p) {
+			q->rchild = s->lchild;
+		}
+		else {
+			q->lchild = s->lchild;
+		}
+		free(s);
+	}
+	return TRUE;
+}
+
+int BST_Delete(BTree *T, int key)
+{
+	if (!(*T)) {
+		return FALSE;
+	}
+	else
+	{
+		if (key == (*T)->data) {
+			Delete(T);
+			return TRUE;
+		}
+		else if (key < (*T)->data) {
+			return BST_Delete(&(*T)->lchild, key);
+		}
+		else {
+			return BST_Delete(&(*T)->rchild, key);
+		}
+	}
+}
+
+void inOrder(BTree T)
+{
+	if (T == NULL) {
+		return;
+	}
+	inOrder(T->lchild);
+	printf("%d ", T->data);
+	inOrder(T->rchild);
+}
+
+int main()
+{
+	int i;
+	int a[9] = { 1,2,3,4,5,6,7,8,9 };
+	BTree T = NULL;
+	for (i = 0; i < 9; i++) {
+		creatInsert(&T, a[i]);
+	}
+	printf("traverse binary search tree by inorder ：\n");
+	inOrder(T);
+	printf("\n");
+	printf("add 10：\n");
+	creatInsert(&T,10);
+	inOrder(T);
+	printf("\n");
+	printf("delete 6：\n");
+	BST_Delete(&T, 6);
+	inOrder(T);
+} 
