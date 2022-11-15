@@ -74,3 +74,24 @@ int main()
 }
 
 //bubble sort
+void bubbleSort(int arr[], int len) {
+	int i, j, k;
+	for (i = 0; i < len - 1; i++){
+		for (j = 0; j < len - 1 - i; j++){
+			if (arr[j] > arr[j + 1]) {
+		k = arr[j];
+		arr[j] = arr[j + 1];
+		arr[j + 1] = k;
+		}
+	  }		
+	}	
+}
+
+
+int main() {
+	int arr[15] ={3,44,38,5,47,15,36,26,27,2,46,4,19,50,48};
+	bubbleSort(arr, 15);
+	int i;
+	for (i = 0; i < 15; i++)
+		printf("%d ", arr[i]);
+}
