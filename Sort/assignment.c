@@ -5,7 +5,7 @@
 //insertion sort
 #include<stdio.h>
 
-void insertsort(int arr[], int len){
+void insertSort(int arr[], int len){
 	int i,j,k;
 	for (i=1;i<len;i++){
 		k = arr[i];
