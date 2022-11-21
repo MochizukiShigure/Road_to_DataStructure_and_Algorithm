@@ -18,18 +18,19 @@ void quickSort(int a[], int lower, int upper)
 		{
 			j--;
 		}
-		
+		if(i < j)
+		{
+			a[i++] = a[j];
+		}
 		while(i < j && a[i] <= tmp)
 		{
 			i++;
 		}
-		
 		if(i < j)
 		{
-			temp = a[j];
-			a[j] = a[i];
-			a[i] = temp;
+			a[j--] = a[i];
 		}
+		
 	}
 	
 	a[lower] = a[i];
