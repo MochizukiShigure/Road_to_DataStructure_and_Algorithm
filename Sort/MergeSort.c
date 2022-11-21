@@ -24,7 +24,7 @@ void quickSort(int a[], int lower, int upper)
 			i++;
 		}
 		
-		if(j > i)
+		if(i < j)
 		{
 			temp = a[j];
 			a[j] = a[i];
