@@ -7,13 +7,13 @@ void insertSort(int arr[], int len){
 		while((j>=0) && (arr[j]>k)) {
 			arr[j+1] = arr[j];
 			j--;
-			/*
+			/* to show each step
 			  for(n=0;n<=5;n++){
 				printf("%d ", arr[n]);
 			}
 			printf("k = %d", k);
 			printf("\n"); 
-		    */
+		        */
 		}
 		arr[j+1] = k;
 	}
