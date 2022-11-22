@@ -17,17 +17,17 @@ void quickSort(int a[], int lower, int upper)
 		{
 			j--;
 		}
-		
+		if(i < j)
+		{
+			a[i++] = a[j];
+		}
 		while(i < j && a[i] <= tmp)
 		{
 			i++;
 		}
-		
-		if(j > i)
+		if(i < j)
 		{
-			temp = a[j];
-			a[j] = a[i];
-			a[i] = temp;
+			a[j--] = a[i];
 		}
 		
 		for(k = 0; k < 10; k++)
@@ -39,10 +39,8 @@ void quickSort(int a[], int lower, int upper)
 	
 	a[lower] = a[i];
 	a[i] = tmp;
-	
 	quickSort(a,lower,i-1);
 	quickSort(a,i+1,upper);
-	
 }
 
 int main()
