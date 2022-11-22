@@ -1,6 +1,6 @@
 #include<stdio.h>
 void insertSort(int arr[], int len){
-	int i,j,k,n;
+	int i,j,k;
 	for (i=1;i<len;i++){
 		k = arr[i];
 		j=i-1;
@@ -8,6 +8,7 @@ void insertSort(int arr[], int len){
 			arr[j+1] = arr[j];
 			j--;
 			/* to show each step
+			  int n;
 			  for(n=0;n<=5;n++){
 				printf("%d ", arr[n]);
 			}
