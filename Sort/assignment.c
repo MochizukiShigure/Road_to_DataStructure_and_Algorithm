@@ -21,7 +21,7 @@ void insertSort(int arr[], int len){
 int main()
 {
 	int a[6] = {7,4,-2,19,13,6};
-	insertsort(a,6);
+	insertSort(a,6);
 	for(int i=0;i<=5;i++){
 		printf("%d ", a[i]);
 	}
