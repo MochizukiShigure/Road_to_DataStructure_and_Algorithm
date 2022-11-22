@@ -1,4 +1,3 @@
-
 //2 quick sort
 #include <stdio.h>
 void quickSort(int a[], int lower, int upper)
@@ -18,25 +17,32 @@ void quickSort(int a[], int lower, int upper)
 		{
 			j--;
 		}
-		if(i < j)
-		{
-			a[i++] = a[j];
-		}
+		
 		while(i < j && a[i] <= tmp)
 		{
 			i++;
 		}
-		if(i < j)
+		
+		if(j > i)
 		{
-			a[j--] = a[i];
+			temp = a[j];
+			a[j] = a[i];
+			a[i] = temp;
 		}
 		
+		for(k = 0; k < 10; k++)
+		{ 
+			printf(" %d ", a[k]);
+		}
+		printf("\n");
 	}
 	
 	a[lower] = a[i];
 	a[i] = tmp;
+	
 	quickSort(a,lower,i-1);
 	quickSort(a,i+1,upper);
+	
 }
 
 int main()
